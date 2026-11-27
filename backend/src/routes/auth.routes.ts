@@ -7,6 +7,9 @@ import { loginSchema } from "../validators/auth.validator";
 import { authenticateUser } from "../middleware/auth.middleware";
 import { getCurrentUser } from "../controllers/auth.controller";
 
+import { logoutUser } from "../controllers/auth.controller";
+
+
 const router = Router();
 
 router.post("/register", (req, res, next) => {
@@ -48,6 +51,5 @@ router.post("/login", (req, res, next) => {
 
 router.get("/me", authenticateUser, getCurrentUser);
 
-import { logoutUser } from "../controllers/auth.controller";
 
 router.post("/logout", authenticateUser, logoutUser);

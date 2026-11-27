@@ -4,6 +4,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import prisma from "./config/database";
 import authRoutes from "./routes/auth.routes";
+import skillRoutes from "./routes/skill.routes";
+import profileRoutes from "./routes/profile.routes";
+
 
 dotenv.config();
 
@@ -13,7 +16,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
-// Health check API
+app.use("/api/skills", skillRoutes);
+app.use("/api/users/profile", profileRoutes);
+
+
 app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
