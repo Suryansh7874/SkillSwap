@@ -18,4 +18,5 @@ model User {
   profilePicture String?
   createdAt      DateTime @default(now())
   accountStatus  String   @default("ACTIVE")
+  tokenVersion   Int      @default(0)
 }
